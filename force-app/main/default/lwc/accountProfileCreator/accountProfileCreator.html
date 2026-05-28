@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Account Profile" icon-name="standard:account">
+        <div class="wrapper">
+            <template if:true={errorMessage}>
+                <div class="error">{errorMessage}</div>
+            </template>
+
+            <template if:true={hasProfile}>
+                <div class="section">
+                    <h3>Account</h3>
+                    <p><strong>Name:</strong> {profile.accountName}</p>
+                    <p><strong>Phone:</strong> {profile.accountPhone}</p>
+                    <p><strong>Website:</strong> {profile.accountWebsite}</p>
+                    <p><strong>Industry:</strong> {profile.accountIndustry}</p>
+                    <p><strong>Billing City:</strong> {profile.accountBillingCity}</p>
+                </div>
+
+                <div class="section">
+                    <h3>Contact</h3>
+                    <template if:true={hasContact}>
+                        <p><strong>Name:</strong> {profile.contactName}</p>
+                        <p><strong>Email:</strong> {profile.contactEmail}</p>
+                        <p><strong>Phone:</strong> {profile.contactPhone}</p>
+                    </template>
+                    <template if:false={hasContact}>
+                        <p class="muted">No related contact found.</p>
+                    </template>
+                </div>
+
+                <div class="section">
+                    <h3>Opportunity</h3>
+                    <template if:true={hasOpportunity}>
+                        <p><strong>Name:</strong> {profile.opportunityName}</p>
+                        <p><strong>Stage:</strong> {profile.opportunityStageName}</p>
+                        <p><strong>Close Date:</strong> {profile.opportunityCloseDate}</p>
+                        <p><strong>Amount:</strong> {profile.opportunityAmount}</p>
+                    </template>
+                    <template if:false={hasOpportunity}>
+                        <p class="muted">No related opportunity found.</p>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
