@@ -1,0 +1,7 @@
+.slds-has-error {
+  border: 1px solid #c23030;
+}
+
+:host {
+  display: block;
+}

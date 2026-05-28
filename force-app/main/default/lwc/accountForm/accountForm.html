@@ -1,0 +1,74 @@
+<template>
+  <lightning-card title="Account Form" icon-name="standard:account">
+    <div class="slds-p-around_medium">
+      <lightning-record-edit-form>
+        <div class="slds-grid slds-wrap">
+          <div
+            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_small"
+          >
+            <lightning-input
+              name="Name"
+              label="Account Name"
+              placeholder="Enter account name"
+              value={accountData.Name}
+              onchange={handleInputChange}
+              required
+            ></lightning-input>
+          </div>
+          <div
+            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_small"
+          >
+            <lightning-input
+              name="Phone"
+              label="Phone"
+              placeholder="Enter phone number"
+              type="tel"
+              value={accountData.Phone}
+              onchange={handleInputChange}
+            ></lightning-input>
+          </div>
+          <div
+            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_small"
+          >
+            <lightning-input
+              name="Website"
+              label="Website"
+              placeholder="Enter website URL"
+              type="url"
+              value={accountData.Website}
+              onchange={handleInputChange}
+            ></lightning-input>
+          </div>
+          <div
+            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_small"
+          >
+            <lightning-combobox
+              name="Industry"
+              label="Industry"
+              placeholder="Select an industry"
+              options={industryOptions}
+              value={accountData.Industry}
+              onchange={handleInputChange}
+            ></lightning-combobox>
+          </div>
+        </div>
+
+        <div class="slds-p-around_small slds-text-align_center">
+          <lightning-button
+            variant="brand"
+            label="Submit"
+            onclick={handleSubmit}
+            disabled={isLoading}
+            class="slds-m-right_x-small"
+          ></lightning-button>
+          <lightning-button
+            variant="neutral"
+            label="Reset"
+            onclick={handleReset}
+            disabled={isLoading}
+          ></lightning-button>
+        </div>
+      </lightning-record-edit-form>
+    </div>
+  </lightning-card>
+</template>
